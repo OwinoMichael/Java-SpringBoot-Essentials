@@ -1,12 +1,11 @@
 package ProductContorllerTest;
 
 import com.example.demo.Exceptions.ProductNotFoundException;
-import com.example.demo.Exceptions.ProductNotValidException;
 import com.example.demo.NoBsSpringBootApplication;
-import com.example.demo.products.Model.Product;
-import com.example.demo.products.Model.ProductDTO;
-import com.example.demo.products.ProductRepository;
-import com.example.demo.products.queryhandlers.GetProductQueryHandler;
+import com.example.demo.Product.Model.Product;
+import com.example.demo.Product.Model.ProductDTO;
+import com.example.demo.Product.ProductRepository;
+import com.example.demo.Product.queryhandlers.GetProductQueryHandler;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;

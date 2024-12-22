@@ -1,24 +1,18 @@
-package com.example.demo.products;
+package com.example.demo.Product;
 
-import com.example.demo.Exceptions.ProductNotFoundException;
-import com.example.demo.products.Model.Product;
-import com.example.demo.products.Model.ProductDTO;
-import com.example.demo.products.Model.UpdateProductCommand;
-import com.example.demo.products.commandHandlers.CreateProductCommandHandler;
-import com.example.demo.products.commandHandlers.DeleteProductCommandHandler;
-import com.example.demo.products.commandHandlers.UpdateProductCommandHandler;
-import com.example.demo.products.queryhandlers.GetAllProductsQueryHandler;
-import com.example.demo.products.queryhandlers.GetProductQueryHandler;
-import org.apache.coyote.Response;
+import com.example.demo.Product.Model.Product;
+import com.example.demo.Product.Model.ProductDTO;
+import com.example.demo.Product.Model.UpdateProductCommand;
+import com.example.demo.Product.commandHandlers.CreateProductCommandHandler;
+import com.example.demo.Product.commandHandlers.DeleteProductCommandHandler;
+import com.example.demo.Product.commandHandlers.UpdateProductCommandHandler;
+import com.example.demo.Product.queryhandlers.GetAllProductsQueryHandler;
+import com.example.demo.Product.queryhandlers.GetProductQueryHandler;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.relational.core.sql.Update;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/products")

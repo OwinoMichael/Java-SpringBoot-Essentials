@@ -1,4 +1,4 @@
-package com.example.demo.products.Model;
+package com.example.demo.Product.Model;
 
 import java.util.Objects;
 
@@ -11,6 +11,12 @@ public class ProductDTO {
         this.name = product.getName();
         this.description = product.getDescription();
         this.price = product.getPrice();
+    }
+
+    public ProductDTO(String name, String description, Double price) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
     }
 
     public String getName() {

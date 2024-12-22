@@ -1,4 +1,4 @@
-package com.example.demo.products.Model;
+package com.example.demo.Product.Model;
 
 public class UpdateProductCommand {
     private int id;
