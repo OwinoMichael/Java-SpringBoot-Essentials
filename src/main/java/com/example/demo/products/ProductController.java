@@ -38,6 +38,11 @@ public class ProductController {
     @Autowired DeleteProductCommandHandler deleteProductCommandHandler;
 
     //CRUD
+    @GetMapping("/search/{maxPrice}")
+    public ResponseEntity<List<Product>> findProductsByPrice(@PathVariable Double maxPrice){
+       return ResponseEntity.ok(productRepository.findProductsWithPriceLessThan(maxPrice));
+    }
+
     @GetMapping
     public ResponseEntity<List<ProductDTO>> getProducts(){
         return getAllProductsQueryHandler.execute(null);
