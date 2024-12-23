@@ -37,16 +37,16 @@ public class ProductController {
 //       return ResponseEntity.ok(productRepository.findProductsWithPriceLessThan(maxPrice));
 //    }
 
-    @GetMapping("/search/{name}")
-    public ResponseEntity<List<ProductDTO>> findProductsByName(@PathVariable String name){
-        List<Product> products = productRepository.findByName(name);
-        System.out.println(products);
-        List<ProductDTO> searchProducts = products.stream()
-                .map(ProductDTO::new)
-                .toList();
-
-        return ResponseEntity.ok(searchProducts);
-    }
+//    @GetMapping("/search/{name}")
+//    public ResponseEntity<List<ProductDTO>> findProductsByName(@PathVariable String name){
+//        List<Product> products = productRepository.findByName(name);
+//        System.out.println(products);
+//        List<ProductDTO> searchProducts = products.stream()
+//                .map(ProductDTO::new)
+//                .toList();
+//
+//        return ResponseEntity.ok(searchProducts);
+//    }
 
     @GetMapping
     public ResponseEntity<List<ProductDTO>> getProducts(){
@@ -58,6 +58,23 @@ public class ProductController {
     public ResponseEntity<ProductDTO> getProduct(@PathVariable Integer id){
         return getProductQueryHandler.execute(id);
     }
+
+//    @GetMapping("/search")
+//    public ResponseEntity<List<Product>> searchProducts(@RequestParam(value = "description") String description){
+//        System.out.println("Description to search: " + description);
+//        List<Product> results = productRepository.findByDescriptionContainingIgnoreCase(description);
+//        System.out.println("Results: " + results);
+//        return ResponseEntity.ok(productRepository.findByDescriptionContainingIgnoreCase(description));
+//
+//    }
+@GetMapping("/search")
+public ResponseEntity<List<Product>> searchProducts(@RequestParam(value = "description") String description) {
+    // Trim the search term to remove any whitespace or newline characters
+    String cleanDescription = description.trim();
+
+
+    return ResponseEntity.ok(productRepository.findByDescriptionContainingIgnoreCase(cleanDescription));
+}
 
     @PostMapping
     public ResponseEntity createProduct(@RequestBody Product product){

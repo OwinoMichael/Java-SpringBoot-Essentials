@@ -5,10 +5,10 @@ import lombok.*;
 
 
 @Entity
-@Data
-@Getter(AccessLevel.PUBLIC)
-@Setter(AccessLevel.PUBLIC)
-@AllArgsConstructor
+//@Data
+//@Getter(AccessLevel.PUBLIC)
+//@Setter(AccessLevel.PUBLIC)
+//@AllArgsConstructor
 @ToString
 @EqualsAndHashCode
 @Table(name = "product")
