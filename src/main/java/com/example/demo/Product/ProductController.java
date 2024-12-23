@@ -32,9 +32,20 @@ public class ProductController {
     @Autowired DeleteProductCommandHandler deleteProductCommandHandler;
 
     //CRUD
-    @GetMapping("/search/{maxPrice}")
-    public ResponseEntity<List<Product>> findProductsByPrice(@PathVariable Double maxPrice){
-       return ResponseEntity.ok(productRepository.findProductsWithPriceLessThan(maxPrice));
+//    @GetMapping("/search/{maxPrice}")
+//    public ResponseEntity<List<Product>> findProductsByPrice(@PathVariable Double maxPrice){
+//       return ResponseEntity.ok(productRepository.findProductsWithPriceLessThan(maxPrice));
+//    }
+
+    @GetMapping("/search/{name}")
+    public ResponseEntity<List<ProductDTO>> findProductsByName(@PathVariable String name){
+        List<Product> products = productRepository.findByName(name);
+        System.out.println(products);
+        List<ProductDTO> searchProducts = products.stream()
+                .map(ProductDTO::new)
+                .toList();
+
+        return ResponseEntity.ok(searchProducts);
     }
 
     @GetMapping

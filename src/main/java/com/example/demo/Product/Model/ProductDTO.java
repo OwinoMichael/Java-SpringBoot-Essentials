@@ -19,6 +19,10 @@ public class ProductDTO {
         this.price = price;
     }
 
+    public ProductDTO(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }

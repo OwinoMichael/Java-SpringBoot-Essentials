@@ -13,10 +13,17 @@ import java.util.List;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 
+    //Custom Query
     @Query("SELECT p FROM Product p WHERE p.price < :maxPrice ")
     List<Product> findProductsWithPriceLessThan(@Param("maxPrice") double maxPrice);
 
     @Query("SELECT new com.example.demo.Product.Model.ProductDTO(p.name, p.description, p.price) FROM Product p")
     List<ProductDTO> getAllProductDTO();
+
+    //Spring Data JPA
+    List<Product> findByName(String name);
+    List<Product> findByDescriptionContaining(String name, String description);
+    List<Product> findByNameOrDescription(String name, String description);
+    List<Product> findPriceLessThanOrderPriceAsc(Double maxPrice);
 
 }
