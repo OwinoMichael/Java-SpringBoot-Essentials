@@ -33,8 +33,8 @@ public class CustomerController {
             // Update the fields
             existingCustomer.setFirstName(customer.getFirstName());
             existingCustomer.setLastName(customer.getLastName());
-            if (customer.getAddress() != null) {
-                existingCustomer.setAddress(customer.getAddress());
+            if (customer.getAddresses() != null) {
+                existingCustomer.setAddresses(customer.getAddresses());
             }
 
             // Save the updated customer

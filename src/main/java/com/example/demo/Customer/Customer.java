@@ -21,15 +21,20 @@ public class Customer {
     @Column(name = "last_name")
     private String lastName;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "customer_id")
-    private List<Address> address;
+    @ManyToMany
+    @JoinTable(
+            name = "customer_address",
+            joinColumns = @JoinColumn(name = "customer_id"),
+            inverseJoinColumns = @JoinColumn(name = "address_id")
 
-    public Customer(Integer id, String firstName, String lastName, List<Address> address) {
+    )
+    private List<Address> addresses;
+
+    public Customer(Integer id, String firstName, String lastName, List<Address> addresses) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.address = address;
+        this.addresses = addresses;
     }
 
     public Customer() {
@@ -60,11 +65,11 @@ public class Customer {
         this.lastName = lastName;
     }
 
-    public List<Address> getAddress() {
-        return address;
+    public List<Address> getAddresses() {
+        return addresses;
     }
 
-    public void setAddress(List<Address> address) {
-        this.address = address;
+    public void setAddresses(List<Address> address) {
+        this.addresses = address;
     }
 }

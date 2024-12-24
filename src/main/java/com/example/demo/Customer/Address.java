@@ -1,7 +1,11 @@
 package com.example.demo.Customer;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.security.PrivateKey;
+import java.util.List;
 
 @Entity
 @Table(name = "address")
@@ -22,26 +26,19 @@ public class Address {
     @Column(name = "state")
     private String state;
 
-    @Column(name = "customer_id")
-    private Integer customerId;
+    @ManyToMany(mappedBy = "addresses")
+    @JsonIgnore
+    private List<Customer> customers;
 
     public Address() {
     }
 
-    public Address(Integer id, String street, String city, String state, Integer customerId) {
+    public Address(Integer id, List<Customer> customers, String state, String city, String street) {
         this.id = id;
-        this.street = street;
-        this.city = city;
+        this.customers = customers;
         this.state = state;
-        this.customerId = customerId;
-    }
-
-    public Integer getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Integer customerId) {
-        this.customerId = customerId;
+        this.city = city;
+        this.street = street;
     }
 
     public Integer getId() {
@@ -76,5 +73,11 @@ public class Address {
         this.state = state;
     }
 
+    public List<Customer> getCustomers() {
+        return customers;
+    }
 
+    public void setCustomers(List<Customer> customers) {
+        this.customers = customers;
+    }
 }
