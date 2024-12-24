@@ -1,0 +1,2 @@
+2024-12-23T21:58:28.885-05:00 ERROR 91694 --- [NoBSSpringBoot] [http-nio-8080-exec-3] c.e.d.P.c.CreateProductCommandHandler    : Product Not Valid Exception was thrown (Invalid Name)com.example.demo.Product.Model.Product@59b0f822
+2024-12-23T21:58:39.989-05:00 ERROR 91694 --- [NoBSSpringBoot] [http-nio-8080-exec-4] c.e.d.P.c.CreateProductCommandHandler    : Product Not Valid Exception was thrown (Invalid Quantity)com.example.demo.Product.Model.Product@f793809
