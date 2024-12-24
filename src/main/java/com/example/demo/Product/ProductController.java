@@ -67,14 +67,14 @@ public class ProductController {
 //        return ResponseEntity.ok(productRepository.findByDescriptionContainingIgnoreCase(description));
 //
 //    }
-@GetMapping("/search")
-public ResponseEntity<List<Product>> searchProducts(@RequestParam(value = "description") String description) {
-    // Trim the search term to remove any whitespace or newline characters
-    String cleanDescription = description.trim();
+    @GetMapping("/search")
+    public ResponseEntity<List<Product>> searchProducts(@RequestParam(value = "description") String description) {
+        // Trim the search term to remove any whitespace or newline characters
+        String cleanDescription = description.trim();
 
 
-    return ResponseEntity.ok(productRepository.findByDescriptionContainingIgnoreCase(cleanDescription));
-}
+        return ResponseEntity.ok(productRepository.findByDescriptionContainingIgnoreCase(cleanDescription));
+    }
 
     @PostMapping
     public ResponseEntity createProduct(@RequestBody Product product){
