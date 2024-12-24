@@ -3,6 +3,8 @@ package com.example.demo.Customer;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Table(name = "customer")
 @Data
@@ -13,17 +15,17 @@ public class Customer {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "fist_name")
+    @Column(name = "first_name")
     private String firstName;
 
     @Column(name = "last_name")
     private String lastName;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "address_id")
-    private Address address;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "customer_id")
+    private List<Address> address;
 
-    public Customer(Integer id, String firstName, String lastName, Address address) {
+    public Customer(Integer id, String firstName, String lastName, List<Address> address) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -58,11 +60,11 @@ public class Customer {
         this.lastName = lastName;
     }
 
-    public Address getAddress() {
+    public List<Address> getAddress() {
         return address;
     }
 
-    public void setAddress(Address address) {
+    public void setAddress(List<Address> address) {
         this.address = address;
     }
 }

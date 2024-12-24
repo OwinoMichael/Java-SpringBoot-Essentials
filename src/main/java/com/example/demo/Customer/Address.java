@@ -22,14 +22,26 @@ public class Address {
     @Column(name = "state")
     private String state;
 
+    @Column(name = "customer_id")
+    private Integer customerId;
+
     public Address() {
     }
 
-    public Address(Integer id, String state, String city, String street) {
+    public Address(Integer id, String street, String city, String state, Integer customerId) {
         this.id = id;
-        this.state = state;
-        this.city = city;
         this.street = street;
+        this.city = city;
+        this.state = state;
+        this.customerId = customerId;
+    }
+
+    public Integer getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(Integer customerId) {
+        this.customerId = customerId;
     }
 
     public Integer getId() {
@@ -63,4 +75,6 @@ public class Address {
     public void setState(String state) {
         this.state = state;
     }
+
+
 }
