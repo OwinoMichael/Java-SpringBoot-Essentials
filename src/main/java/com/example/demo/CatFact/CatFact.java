@@ -1,23 +1,23 @@
 package com.example.demo.CatFact;
 
 public class CatFact {
-    private String Fact;
+    private String fact;
     private int length;
 
     public CatFact() {
     }
 
     public CatFact(String fact, int length) {
-        Fact = fact;
+        this.fact = fact;
         this.length = length;
     }
 
     public String getFact() {
-        return Fact;
+        return fact;
     }
 
     public void setFact(String fact) {
-        Fact = fact;
+        this.fact = fact;
     }
 
     public int getLength() {
