@@ -1,0 +1,1 @@
+2024-12-28T20:36:34.887-05:00 ERROR 41857 --- [NoBSSpringBoot] [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : Field 'catFactJSON' doesn't have a default value
